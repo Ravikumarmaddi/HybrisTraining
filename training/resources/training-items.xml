@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- [y] hybris Platform Copyright (c) 2000-2013 hybris AG All rights reserved. 
+	This software is the confidential and proprietary information of hybris ("Confidential 
+	Information"). You shall not disclose such Confidential Information and shall 
+	use it only in accordance with the terms of the license agreement you entered 
+	into with hybris. -->
+<!-- ATTENTION: This is just an example file. You have to edit it according 
+	to your needs. -->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<collectiontypes>
+		<collectiontype elementtype="MyAddress" code="AddressCollCollection"
+			generate="true" autocreate="true" type="collection" />
+		<collectiontype elementtype="MyAddress" code="AddressListCollection"
+			generate="true" autocreate="true" type="list" />
+		<collectiontype elementtype="MyAddress" code="AddressSetCollection"
+			autocreate="true" generate="true" type="set" />
+	</collectiontypes>
+	<enumtypes>
+		<enumtype code="Sex" autocreate="true" generate="true"
+			jaloclass="de.hybris.platform.jalo.enumeration.Enumerationvalue">
+			<value code="Select" />
+			<value code="Male" />
+			<value code="Female" />
+			<value code="Other" />
+		</enumtype>
+	</enumtypes>
+	<relations>
+
+
+
+	</relations>
+	<itemtypes>
+		<itemtype code="MyAddress" extends="GenericItem" generate="true"
+			autocreate="true">
+			<deployment table="Addresses" typecode="10056" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+			</custom-properties>
+			<attributes>
+				<attribute type="java.lang.String" qualifier="name">
+				</attribute>
+			</attributes>
+		</itemtype>
+
+	</itemtypes>
+</items>
