@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 07-Aug-2015 14:50:09                        ---
+ * --- Generated at 07-Aug-2015 15:47:19                        ---
  * ----------------------------------------------------------------
  */
 package org.training.jalo;
@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 import org.training.constants.TrainingConstants;
 import org.training.jalo.MyAddress;
+import org.training.jalo.MyBillingAddress;
+import org.training.jalo.MyShippingAddress;
 
 /**
  * Generated class for type <code>TrainingManager</code>.
@@ -67,6 +69,58 @@ public abstract class GeneratedTrainingManager extends Extension
 	public MyAddress createMyAddress(final Map attributeValues)
 	{
 		return createMyAddress( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public MyBillingAddress createMyBillingAddress(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingConstants.TC.MYBILLINGADDRESS );
+			return (MyBillingAddress)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating MyBillingAddress : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public MyBillingAddress createMyBillingAddress(final Map attributeValues)
+	{
+		return createMyBillingAddress( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public MyShippingAddress createMyShippingAddress(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingConstants.TC.MYSHIPPINGADDRESS );
+			return (MyShippingAddress)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating MyShippingAddress : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public MyShippingAddress createMyShippingAddress(final Map attributeValues)
+	{
+		return createMyShippingAddress( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override

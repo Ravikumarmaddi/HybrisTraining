@@ -46,6 +46,60 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		// performCreateTypes
 	
 	
+		createItemType(
+			"MyAddress",
+			"GenericItem",
+			org.training.jalo.MyAddress.class,
+			"de.hybris.platform.persistence.training_MyAddress",
+			false,
+			null,
+			false
+		);
+	
+		createItemType(
+			"MyShippingAddress",
+			"MyAddress",
+			org.training.jalo.MyShippingAddress.class,
+			"de.hybris.platform.persistence.training_MyShippingAddress",
+			false,
+			null,
+			false
+		);
+	
+		createItemType(
+			"MyBillingAddress",
+			"MyAddress",
+			org.training.jalo.MyBillingAddress.class,
+			"de.hybris.platform.persistence.training_MyBillingAddress",
+			false,
+			null,
+			false
+		);
+	
+		createEnumerationType(
+			"Sex",
+			de.hybris.platform.jalo.enumeration.EnumerationValue.class
+				
+		);
+	
+		createCollectionType(
+			"AddressCollCollection",
+			"MyAddress",
+			CollectionType.COLLECTION
+		);
+	
+		createCollectionType(
+			"AddressListCollection",
+			"MyAddress",
+			CollectionType.LIST
+		);
+	
+		createCollectionType(
+			"AddressSetCollection",
+			"MyAddress",
+			CollectionType.SET
+		);
+	
 	}
 
 	/**
@@ -59,9 +113,123 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 
 	
 	
+				single_createattr_MyAddress_name();
+			
+				single_createattr_MyAddress_line1();
+			
+				single_createattr_MyAddress_city();
+			
+				single_createattr_MyAddress_county();
+			
+				single_createattr_MyAddress_country();
+			
+				single_createattr_MyAddress_postcode();
+			
 
 	}
 
+	
+	public void single_createattr_MyAddress_name() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"name",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_MyAddress_line1() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"line1",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_MyAddress_city() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"city",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_MyAddress_county() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"county",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_MyAddress_country() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"country",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_MyAddress_postcode() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"MyAddress", 
+					"postcode",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
 	
 
 
@@ -74,10 +242,251 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 		// performCreateObjects
 	
 	
+		createEnumerationValues(
+			"Sex",
+			false,
+			Arrays.asList( new String[] {
+			
+				"Select",
+				"Male",
+				"Female",
+				"Other"
+			} )
+		);
+	
+				{
+				Map customPropsMap = new HashMap();
+				
+					customPropsMap.put( "catalogItemType", java.lang.Boolean.TRUE );
+				
+					customPropsMap.put( "catalogVersionAttributeQualifier", "catalogVersion" );
+				
+					customPropsMap.put( "uniquekeyAttributeQualifier", "code" );
+				
+				setItemTypeProperties(
+					"MyAddress",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+			single_setAttributeProperties_MyAddress_name();
+		
+			single_setAttributeProperties_MyAddress_line1();
+		
+			single_setAttributeProperties_MyAddress_city();
+		
+			single_setAttributeProperties_MyAddress_county();
+		
+			single_setAttributeProperties_MyAddress_country();
+		
+			single_setAttributeProperties_MyAddress_postcode();
+		
+				{
+				Map customPropsMap = new HashMap();
+				
+					customPropsMap.put( "catalogItemType", java.lang.Boolean.TRUE );
+				
+					customPropsMap.put( "catalogVersionAttributeQualifier", "catalogVersion" );
+				
+					customPropsMap.put( "uniquekeyAttributeQualifier", "code" );
+				
+				setItemTypeProperties(
+					"MyShippingAddress",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+				{
+				Map customPropsMap = new HashMap();
+				
+					customPropsMap.put( "catalogItemType", java.lang.Boolean.TRUE );
+				
+					customPropsMap.put( "catalogVersionAttributeQualifier", "catalogVersion" );
+				
+					customPropsMap.put( "uniquekeyAttributeQualifier", "code" );
+				
+				setItemTypeProperties(
+					"MyBillingAddress",
+					false,
+					true,
+					true,
+					null,
+					customPropsMap
+				);
+				}
+			
+				setDefaultProperties(
+					"AddressCollCollection",
+					true,
+					true,
+					null
+				);
+			
+				setDefaultProperties(
+					"AddressListCollection",
+					true,
+					true,
+					null
+				);
+			
+				setDefaultProperties(
+					"AddressSetCollection",
+					true,
+					true,
+					null
+				);
+			
+				setDefaultProperties(
+					"Sex",
+					true,
+					true,
+					null
+				);
+			
 	}
 
 
 		
+						public void single_setAttributeProperties_MyAddress_name() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"name",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_MyAddress_line1() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"line1",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_MyAddress_city() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"city",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_MyAddress_county() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"county",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_MyAddress_country() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"country",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_MyAddress_postcode() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"MyAddress", 
+								"postcode",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
 }
 
 	

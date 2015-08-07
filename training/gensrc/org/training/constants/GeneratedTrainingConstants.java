@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 07-Aug-2015 14:50:09                        ---
+ * --- Generated at 07-Aug-2015 15:47:19                        ---
  * ----------------------------------------------------------------
  */
 package org.training.constants;
@@ -17,6 +17,8 @@ public class GeneratedTrainingConstants
 	public static class TC
 	{
 		public static final String MYADDRESS = "MyAddress".intern();
+		public static final String MYBILLINGADDRESS = "MyBillingAddress".intern();
+		public static final String MYSHIPPINGADDRESS = "MyShippingAddress".intern();
 		public static final String SEX = "Sex".intern();
 	}
 	public static class Attributes

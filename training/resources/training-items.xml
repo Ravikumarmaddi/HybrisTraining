@@ -20,7 +20,7 @@
 	</collectiontypes>
 	<enumtypes>
 		<enumtype code="Sex" autocreate="true" generate="true"
-			jaloclass="de.hybris.platform.jalo.enumeration.Enumerationvalue">
+			jaloclass="de.hybris.platform.jalo.enumeration.EnumerationValue">
 			<value code="Select" />
 			<value code="Male" />
 			<value code="Female" />
@@ -35,17 +35,76 @@
 	<itemtypes>
 		<itemtype code="MyAddress" extends="GenericItem" generate="true"
 			autocreate="true">
-			<deployment table="Addresses" typecode="10056" />
+			<deployment table="MyAddresses" typecode="10056" />
 			<custom-properties>
 				<property name="catalogItemType">
 					<value>java.lang.Boolean.TRUE</value>
 				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
 			</custom-properties>
 			<attributes>
 				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="line1">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="city">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="county">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="country">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="postcode">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
 				</attribute>
 			</attributes>
 		</itemtype>
+		<itemtype code="MyShippingAddress" extends="MyAddress"
+			generate="true" autocreate="true">
+			<deployment table="ShippingAddress" typecode="10057" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+		</itemtype>
+		<itemtype code="MyBillingAddress" extends="MyAddress"
+			generate="true" autocreate="true">
+			<deployment table="BillingAddress" typecode="10058" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+		</itemtype>
+
 
 	</itemtypes>
 </items>
