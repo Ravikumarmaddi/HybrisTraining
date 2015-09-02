@@ -23,7 +23,7 @@
 
 <!--       <webmodule jspcompile="false" webroot="/training"/> -->
 					
-	<hmcmodule extensionclassname="de.hybirs.platform.training.hmc.TrainingHMCExtension"/>
+	<hmcmodule extensionclassname="de.hybris.platform.training.hmc.TrainingHMCExtension"/>
 
    </extension>
       

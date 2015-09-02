@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns="hybris.de/schemas/hmc/generic"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="hybris.de/schemas/hmc/generic hmc.xsd">
+
+	<explorertree>
+		<group name="Training">
+			<typeref type="MyCustomer" mode="replace" />
+			<typeref type="MyBillingAddress" mode="replace" />
+			<typeref type="MyShippingAddress" mode="replace" />
+			<typeref type="MyProduct" mode="replace" />
+			<typeref type="MyCategory" mode="replace" />
+		</group>
+	</explorertree>
+	<type name="MyCustomer" mode="replace">
+		<organizer>
+			<search>
+				<condition attribute="code" />
+				<condition attribute="firstname" />
+				<condition attribute="lastname" />
+			</search>
+			<result defaultview="list" mode="replace">
+				<listview>
+					<itemlayout>
+						<attribute name="code" />
+						<attribute name="fullname" />
+					</itemlayout>
+				</listview>
+			</result>
+			<editor mode="replace">
+				<essentials>
+					<listlayout>
+						<attribute name="code" />
+						<attribute name="firstname" />
+						<attribute name="lastname" />
+						<attribute name="email" />
+						<attribute name="dob" />
+						<attribute name="billingaddressesset" />
+						<attribute name="shippingaddressesset" />
+					</listlayout>
+				</essentials>
+				<tab name="Gender">
+					<section name="Gender">
+						<listlayout>
+							<attribute name="gender" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+	</type>
+	<type name="MyBillingAddress" mode="replace">
+		<organizer>
+			<search>
+				<condition attribute="code" />
+				<condition attribute="country" />
+				<condition attribute="postcode" />
+				<condition attribute="name" />
+			</search>
+			<result defaultview="list" mode="replace">
+				<listview>
+					<itemlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+						<attribute name="country" />
+						<attribute name="postcode" />
+					</itemlayout>
+				</listview>
+			</result>
+			<editor mode="replace">
+				<essentials>
+					<listlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+						<attribute name="line1" />
+						<attribute name="city" />
+
+						<attribute name="country" />
+						<attribute name="postcode" />
+					</listlayout>
+				</essentials>
+				<tab name="County">
+					<section name="County">
+						<listlayout>
+							<attribute name="county" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+	</type>
+	<type name="MyShippingAddress" mode="replace">
+		<organizer>
+			<search>
+				<condition attribute="code" />
+				<condition attribute="country" />
+				<condition attribute="postcode" />
+				<condition attribute="name" />
+			</search>
+			<result defaultview="list" mode="replace">
+				<listview>
+					<itemlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+						<attribute name="country" />
+						<attribute name="postcode" />
+					</itemlayout>
+				</listview>
+			</result>
+			<editor mode="replace">
+				<essentials>
+					<listlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+						<attribute name="line1" />
+						<attribute name="city" />
+						<attribute name="county" />
+						<attribute name="country" />
+						<attribute name="postcode" />
+					</listlayout>
+				</essentials>
+				<tab name="County">
+					<section name="County">
+						<listlayout>
+							<attribute name="county" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+	</type>
+	<type name="MyProduct" mode="replace">
+		<organizer>
+			<search>
+				<condition attribute="code" />
+				<condition attribute="name" />
+				<condition attribute="price" />
+				<condition attribute="image" />
+			</search>
+			<result defaultview="list" mode="replace">
+				<listview>
+					<itemlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+						<attribute name="price" />
+						<attribute name="category.name" />
+					</itemlayout>
+				</listview>
+			</result>
+			<editor mode="replace">
+				<essentials>
+					<listlayout>
+						<attribute name="code" />
+						<attribute name="category" />
+					</listlayout>
+				</essentials>
+				<tab name="tab.product">
+					<section name="section.product">
+						<listlayout>
+							<attribute name="name" />
+							<attribute name="price" />
+						</listlayout>
+					</section>
+				</tab>
+				<tab name="tab.product.category">
+					<section name="section.product.category">
+						<listlayout>
+							<attribute name="category" />
+						</listlayout>
+					</section>
+				</tab>
+				<tab name="Images">
+					<section name="Images">
+						<listlayout>
+							<attribute name="imagesset" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+	</type>
+	<type name="MyCategory" mode="replace">
+		<organizer>
+			<search>
+				<condition attribute="code" />
+				<condition attribute="name" />
+			</search>
+			<result defaultview="list" mode="replace">
+				<listview>
+					<itemlayout>
+						<attribute name="code" />
+						<attribute name="name" />
+					</itemlayout>
+				</listview>
+			</result>
+			<editor mode="replace">
+				<essentials>
+					<listlayout>
+						<attribute name="code" />
+
+					</listlayout>
+				</essentials>
+				<tab name="Name">
+					<section name="Name">
+						<listlayout>
+							<attribute name="name" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+	</type>
+</configuration>

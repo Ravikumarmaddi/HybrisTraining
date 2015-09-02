@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 07-Aug-2015 15:47:19                        ---
+ * --- Generated at 25-Aug-2015 16:36:17                        ---
  * ----------------------------------------------------------------
  */
 package org.training.constants;
@@ -18,7 +18,11 @@ public class GeneratedTrainingConstants
 	{
 		public static final String MYADDRESS = "MyAddress".intern();
 		public static final String MYBILLINGADDRESS = "MyBillingAddress".intern();
+		public static final String MYCATEGORY = "MyCategory".intern();
+		public static final String MYCUSTOMER = "MyCustomer".intern();
+		public static final String MYPRODUCT = "MyProduct".intern();
 		public static final String MYSHIPPINGADDRESS = "MyShippingAddress".intern();
+		public static final String PRODUCTIMAGE = "ProductImage".intern();
 		public static final String SEX = "Sex".intern();
 	}
 	public static class Attributes
@@ -34,6 +38,13 @@ public class GeneratedTrainingConstants
 			public static final String FEMALE = "Female".intern();
 			public static final String OTHER = "Other".intern();
 		}
+	}
+	public static class Relations
+	{
+		public static final String CUSTOMERTOBILLINGADDRESS = "CustomerToBillingAddress".intern();
+		public static final String CUSTOMERTOSHIPPINGADDRESS = "CustomerToShippingAddress".intern();
+		public static final String PRODUCTTOCATEGORY = "ProductToCategory".intern();
+		public static final String PRODUCTTOIMAGES = "ProductToImages".intern();
 	}
 	
 	protected GeneratedTrainingConstants()

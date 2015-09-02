@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 07-Aug-2015 15:47:19                        ---
+ * --- Generated at 25-Aug-2015 16:36:17                        ---
  * ----------------------------------------------------------------
  */
 package org.training.jalo;
@@ -20,6 +20,8 @@ import org.training.constants.TrainingConstants;
 @SuppressWarnings({"deprecation","unused","cast","PMD"})
 public abstract class GeneratedMyAddress extends GenericItem
 {
+	/** Qualifier of the <code>MyAddress.code</code> attribute **/
+	public static final String CODE = "code";
 	/** Qualifier of the <code>MyAddress.name</code> attribute **/
 	public static final String NAME = "name";
 	/** Qualifier of the <code>MyAddress.line1</code> attribute **/
@@ -36,6 +38,7 @@ public abstract class GeneratedMyAddress extends GenericItem
 	static
 	{
 		final Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
+		tmp.put(CODE, AttributeMode.INITIAL);
 		tmp.put(NAME, AttributeMode.INITIAL);
 		tmp.put(LINE1, AttributeMode.INITIAL);
 		tmp.put(CITY, AttributeMode.INITIAL);
@@ -84,6 +87,42 @@ public abstract class GeneratedMyAddress extends GenericItem
 	public void setCity(final String value)
 	{
 		setCity( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>MyAddress.code</code> attribute.
+	 * @return the code
+	 */
+	public String getCode(final SessionContext ctx)
+	{
+		return (String)getProperty( ctx, CODE);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>MyAddress.code</code> attribute.
+	 * @return the code
+	 */
+	public String getCode()
+	{
+		return getCode( getSession().getSessionContext() );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>MyAddress.code</code> attribute. 
+	 * @param value the code
+	 */
+	public void setCode(final SessionContext ctx, final String value)
+	{
+		setProperty(ctx, CODE,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>MyAddress.code</code> attribute. 
+	 * @param value the code
+	 */
+	public void setCode(final String value)
+	{
+		setCode( getSession().getSessionContext(), value );
 	}
 	
 	/**

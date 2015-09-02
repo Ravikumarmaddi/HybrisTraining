@@ -11,13 +11,32 @@
 	xsi:noNamespaceSchemaLocation="items.xsd">
 
 	<collectiontypes>
-		<collectiontype elementtype="MyAddress" code="AddressCollCollection"
-			generate="true" autocreate="true" type="collection" />
-		<collectiontype elementtype="MyAddress" code="AddressListCollection"
-			generate="true" autocreate="true" type="list" />
-		<collectiontype elementtype="MyAddress" code="AddressSetCollection"
-			autocreate="true" generate="true" type="set" />
+<!-- 		<collectiontype elementtype="MyBillingAddress" -->
+<!-- 			code="BillingAddressCollCollection" generate="true" autocreate="true" -->
+<!-- 			type="collection" /> -->
+<!-- 		<collectiontype elementtype="MyBillingAddress" -->
+<!-- 			code="BillingAddressListCollection" generate="true" autocreate="true" -->
+<!-- 			type="list" /> -->
+		<collectiontype elementtype="MyBillingAddress"
+			code="BillingAddressSetCollection" autocreate="true" generate="true"
+			type="set" />
+<!-- 		<collectiontype elementtype="MyShippingAddress" -->
+<!-- 			code="ShippingAddressCollCollection" generate="true" autocreate="true" -->
+<!-- 			type="collection" /> -->
+<!-- 		<collectiontype elementtype="MyShippingAddress" -->
+<!-- 			code="ShiipingAddressListCollection" generate="true" autocreate="true" -->
+<!-- 			type="list" /> -->
+		<collectiontype elementtype="MyShippingAddress"
+			code="ShippingAddressSetCollection" autocreate="true" generate="true"
+			type="set" />
+		<collectiontype elementtype="ProductImage" code="ProductImagesCollection"
+			autocreate="true" generate="true" type="collection" />
+		<collectiontype elementtype="ProductImage" code="ProductImagesList"
+			autocreate="true" generate="true" type="collection" />
+		<collectiontype elementtype="ProductImage" code="ProductImagesSet"
+			autocreate="true" generate="true" type="collection" />
 	</collectiontypes>
+
 	<enumtypes>
 		<enumtype code="Sex" autocreate="true" generate="true"
 			jaloclass="de.hybris.platform.jalo.enumeration.EnumerationValue">
@@ -27,14 +46,66 @@
 			<value code="Other" />
 		</enumtype>
 	</enumtypes>
+
 	<relations>
-
-
-
+		<relation localized="false" code="CustomerToBillingAddress"
+			autocreate="true">
+			<description>Many to Many relationship between Customer and BillingAddress</description>
+			<deployment table="customertobilling" typecode="10092" />
+			<sourceElement type="MyCustomer" cardinality="many"
+				qualifier="customer">
+				<modifiers read="true" write="true" optional="true" />
+			</sourceElement>
+			<targetElement type="MyBillingAddress" cardinality="many"
+				qualifier="billingaddress">
+				<modifiers read="true" write="true" optional="true" />
+			</targetElement>
+		</relation>
+		<relation localized="false" code="CustomerToShippingAddress"
+			autocreate="true">
+			<description>Many to Many relationship between Customer and ShippingAddress</description>
+			<deployment table="customertoshipping" typecode="10093" />
+			<sourceElement type="MyCustomer" cardinality="many"
+				qualifier="customer">
+				<modifiers read="true" write="true" optional="true" />
+			</sourceElement>
+			<targetElement type="MyShippingAddress" cardinality="many"
+				qualifier="billingaddress">
+				<modifiers read="true" write="true" optional="true" />
+			</targetElement>
+		</relation>
+		<relation localized="false" code="ProductToImages"
+			autocreate="true">
+			<description>One to Many relationship between Product and Image</description>
+			<sourceElement type="MyProduct" cardinality="one"
+				qualifier="product">
+				<modifiers read="true" write="true" optional="true" />
+			</sourceElement>
+			<targetElement type="ProductImage" cardinality="many"
+				qualifier="image">
+				<modifiers read="true" write="true" optional="true" />
+			</targetElement>
+		</relation>
+		<relation localized="false" code="ProductToCategory"
+			autocreate="true">
+			<description>Many to One relationship between Product and Category</description>
+			<sourceElement type="MyProduct" cardinality="many"
+				qualifier="product">
+				<modifiers read="true" write="true" optional="true" />
+			</sourceElement>
+			<targetElement type="MyCategory" cardinality="one"
+				qualifier="image">
+				<modifiers read="true" write="true" optional="true" />
+			</targetElement>
+		</relation>
 	</relations>
 	<itemtypes>
-		<itemtype code="MyAddress" extends="GenericItem" generate="true"
+		<itemtype code="ProductImage" extends="Media" generate="true"
 			autocreate="true">
+			<deployment table="productimage" typecode="10098" />
+		</itemtype>
+		<itemtype code="MyAddress" extends="GenericItem" generate="true"
+			autocreate="true" abstract="true">
 			<deployment table="MyAddresses" typecode="10056" />
 			<custom-properties>
 				<property name="catalogItemType">
@@ -48,6 +119,10 @@
 				</property>
 			</custom-properties>
 			<attributes>
+				<attribute type="java.lang.String" qualifier="code">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
 				<attribute type="java.lang.String" qualifier="name">
 					<persistence type="property" />
 					<modifiers read="true" write="true" optional="false" />
@@ -104,7 +179,141 @@
 				</property>
 			</custom-properties>
 		</itemtype>
-
-
+		<itemtype code="MyCustomer" generate="true" autocreate="true">
+			<deployment table="Customers" typecode="10059" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+			<attributes>
+				<attribute type="java.lang.String" qualifier="code">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="firstname">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="lastname">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.util.date" qualifier="dob">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+<!-- 				<attribute type="BillingAddressCollCollection" qualifier="billingaddressescoll"> -->
+<!-- 					<persistence type="property" /> -->
+<!-- 					<modifiers read="true" write="true" optional="false" /> -->
+<!-- 				</attribute> -->
+<!-- 				<attribute type="BillingAddressListCollection" qualifier="billingaddresseslist"> -->
+<!-- 					<persistence type="property" /> -->
+<!-- 					<modifiers read="true" write="true" optional="false" /> -->
+<!-- 				</attribute> -->
+				<attribute type="BillingAddressSetCollection" qualifier="billingaddressesset">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+<!-- 				<attribute type="ShippingAddressCollCollection" qualifier="shippingaddressescoll"> -->
+<!-- 					<persistence type="property" /> -->
+<!-- 					<modifiers read="true" write="true" optional="false" /> -->
+<!-- 				</attribute> -->
+<!-- 				<attribute type="ShiipingAddressListCollection" qualifier="shippingaddresseslist"> -->
+<!-- 					<persistence type="property" /> -->
+<!-- 					<modifiers read="true" write="true" optional="false" /> -->
+<!-- 				</attribute> -->
+				<attribute type="ShippingAddressSetCollection" qualifier="shippingaddressesset">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="Sex" qualifier="gender">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="email">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="fullname">
+					<persistence type="dynamic" attributeHandler="nameDisplayHandler" />
+					<modifiers read="true" write="false" />
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype code="MyCategory" autocreate="true" generate="true">
+			<deployment table="MyCategories" typecode="10060" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+			<attributes>
+				<attribute type="java.lang.String" qualifier="code">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype code="MyProduct" autocreate="true" generate="true">
+			<deployment table="MyProducts" typecode="10061" />
+			<custom-properties>
+				<property name="catalogItemType">
+					<value>java.lang.Boolean.TRUE</value>
+				</property>
+				<property name="catalogVersionAttributeQualifier">
+					<value>"catalogVersion"</value>
+				</property>
+				<property name="uniquekeyAttributeQualifier">
+					<value>"code"</value>
+				</property>
+			</custom-properties>
+			<attributes>
+				<attribute type="java.lang.String" qualifier="code">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.String" qualifier="name">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="java.lang.Double" qualifier="price">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="MyCategory" qualifier="category">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="false" />
+				</attribute>
+				<attribute type="ProductImagesCollection" qualifier="imagescoll">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+				<attribute type="ProductImagesList" qualifier="imageslist">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+				<attribute type="ProductImagesSet" qualifier="imagesset">
+					<persistence type="property" />
+					<modifiers read="true" write="true" optional="true" />
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
