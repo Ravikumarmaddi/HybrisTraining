@@ -3,17 +3,20 @@
  */
 package de.hybris.platform.cuppytrail.impl;
 
+import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import de.hybris.platform.cuppytrail.daos.StadiumDAO;
 import de.hybris.platform.cuppytrail.model.StadiumModel;
 import de.hybris.platform.cuppytrail.services.impl.DefaultStadiumService;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
-import org.mockito.Mockito;
+import org.junit.Test;
 
 
 /**
@@ -43,12 +46,23 @@ public class DefaultStadiumServiceUnitTest
 
 	}
 
+	@Test
 	public void testGetStadiums()
 	{
 
 		final List<StadiumModel> stadiumModels = Arrays.asList(stadiumModel);
+		when(stadiumDAO.findStadiums()).thenReturn(stadiumModels);
+		final List<StadiumModel> fetchedStadiums = stadiumService.getStadiums();
+		assertEquals(1, fetchedStadiums.size());
+		assertEquals("Unexpected Stadium Found", stadiumModel, fetchedStadiums.get(0));
+	}
 
-		Mockito.when(stadiumDAO.findStadiums()).thenReturn(stadiumModels);
+	@Test
+	public void testGetStadiumForCode()
+	{
+
+		when(stadiumDAO.findStadiumsByCode(STADIUM_CODE)).thenReturn(Collections.singletonList(stadiumModel));
+		assertEquals(stadiumService.getStadiumByCode(STADIUM_CODE), stadiumModel);
 
 	}
 
